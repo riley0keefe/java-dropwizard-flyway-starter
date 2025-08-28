@@ -1,4 +1,4 @@
 CREATE TABLE Team(
 	Team_id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    `Name` varchar(30) NOT NULL
+    `Name` varchar(25) NOT NULL
 );
