@@ -9,11 +9,64 @@ CREATE TABLE Employee(
     FOREIGN KEY (Team_ID) REFERENCES Team(Team_ID)
 );
 
-INSERT INTO Employee (National_ID, `Name`, Salary, Bank_Account_Num, 
-	Commission_Rate, Team_ID)
-SELECT '123256289', 'Ryan Murphy', 120000.36, '123abc45', 100, 3 -- Replace with employee info here
-WHERE EXISTS (
-    SELECT * 
-	FROM Employee
-	WHERE Team_ID = 1 AND Employee_ID = 3 -- Enter Employee_ID here
-);
+DELIMITER //
+
+CREATE PROCEDURE Add_employee (
+
+    IN p_National_ID VARCHAR(16),
+
+    IN p_Name VARCHAR(128),
+
+    IN p_Salary DECIMAL(10, 2),
+
+    IN p_Bank_Account_Num VARCHAR(64),
+
+    IN p_Commission_Rate DECIMAL(5, 2),
+
+    IN p_Team_ID INT
+
+)
+
+BEGIN
+
+    INSERT INTO Employee (
+
+        National_ID,
+
+        `Name`,
+
+        Salary,
+
+        Bank_Account_Num,
+
+        Commission_Rate,
+
+        Team_ID
+
+    )
+
+    VALUES (
+
+        p_National_ID,
+
+        p_Name,
+
+        p_Salary,
+
+        p_Bank_Account_Num,
+
+        COALESCE(p_Commission_Rate, 0.00),
+
+        p_Team_ID
+
+    );
+
+END;
+
+//
+
+DELIMITER ;
+
+ GRANT INSERT ON Flyway_Prod_Kainoos_EvanL.Employee TO 'JohnD'@'%';
+
+ GRANT EXECUTE ON PROCEDURE Flyway_Prod_Kainoos_EvanL.Add_employee TO 'JohnD'@'%';
