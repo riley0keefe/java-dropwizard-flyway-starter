@@ -8,7 +8,12 @@ public class DeliveryEmployee {
     private String bankNumber;
     private String nationalInsuranceNumber;
 
-    public DeliveryEmployee(String firstName, String middleName, String lastName, double salary, String bankNumber, String nationalInsuranceNumber) {
+    public DeliveryEmployee(final String firstName,
+                            final String middleName,
+                            final String lastName,
+                            final double salary,
+                            final String bankNumber,
+                            final String nationalInsuranceNumber) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -21,7 +26,7 @@ public class DeliveryEmployee {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -29,7 +34,7 @@ public class DeliveryEmployee {
         return middleName;
     }
 
-    public void setMiddleName(String middleName) {
+    public void setMiddleName(final String middleName) {
         this.middleName = middleName;
     }
 
@@ -37,7 +42,7 @@ public class DeliveryEmployee {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -45,7 +50,7 @@ public class DeliveryEmployee {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(final double salary) {
         this.salary = salary;
     }
 
@@ -53,7 +58,7 @@ public class DeliveryEmployee {
         return bankNumber;
     }
 
-    public void setBankNumber(String bankNumber) {
+    public void setBankNumber(final String bankNumber) {
         this.bankNumber = bankNumber;
     }
 
@@ -61,7 +66,8 @@ public class DeliveryEmployee {
         return nationalInsuranceNumber;
     }
 
-    public void setNationalInsuranceNumber(String nationalInsuranceNumber) {
+    public void setNationalInsuranceNumber(
+            final String nationalInsuranceNumber) {
         this.nationalInsuranceNumber = nationalInsuranceNumber;
     }
 }

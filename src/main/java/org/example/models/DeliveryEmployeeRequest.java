@@ -10,12 +10,19 @@ public class DeliveryEmployeeRequest {
     private String bankNumber;
     private String nationalInsuranceNumber;
 
-    public DeliveryEmployeeRequest(@JsonProperty("firstName") String firstName,
-                                   @JsonProperty("middleName") String middleName,
-                                   @JsonProperty("lastName") String lastName,
-                                   @JsonProperty("salary") double salary,
-                                   @JsonProperty("bankNumber") String bankNumber,
-                                   @JsonProperty("nationalInsuranceNumber") String nationalInsuranceNumber
+    public DeliveryEmployeeRequest(final @JsonProperty("firstName")
+                                   String firstName,
+                                   final @JsonProperty("middleName")
+                                   String middleName,
+                                   final @JsonProperty("lastName")
+                                   String lastName,
+                                   final @JsonProperty("salary")
+                                   double salary,
+                                   final @JsonProperty("bankNumber")
+                                   String bankNumber,
+                                   final @JsonProperty
+                                           ("nationalInsuranceNumber")
+                                   String nationalInsuranceNumber
                                    ) {
         this.firstName = firstName;
         this.middleName = middleName;
@@ -29,7 +36,7 @@ public class DeliveryEmployeeRequest {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -37,7 +44,7 @@ public class DeliveryEmployeeRequest {
         return middleName;
     }
 
-    public void setMiddleName(String middleName) {
+    public void setMiddleName(final String middleName) {
         this.middleName = middleName;
     }
 
@@ -45,7 +52,7 @@ public class DeliveryEmployeeRequest {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -53,7 +60,7 @@ public class DeliveryEmployeeRequest {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(final double salary) {
         this.salary = salary;
     }
 
@@ -61,7 +68,7 @@ public class DeliveryEmployeeRequest {
         return bankNumber;
     }
 
-    public void setBankNumber(String bankNumber) {
+    public void setBankNumber(final String bankNumber) {
         this.bankNumber = bankNumber;
     }
 
@@ -69,7 +76,8 @@ public class DeliveryEmployeeRequest {
         return nationalInsuranceNumber;
     }
 
-    public void setNationalInsuranceNumber(String nationalInsuranceNumber) {
+    public void setNationalInsuranceNumber(
+            final String nationalInsuranceNumber) {
         this.nationalInsuranceNumber = nationalInsuranceNumber;
     }
 }

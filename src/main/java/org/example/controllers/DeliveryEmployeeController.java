@@ -17,22 +17,26 @@ import java.sql.SQLException;
 public class DeliveryEmployeeController {
     DeliveryEmployeeService deliveryEmployeeService;
 
-    public DeliveryEmployeeController(DeliveryEmployeeService deliveryEmployeeService) {
+    public DeliveryEmployeeController(
+            final DeliveryEmployeeService deliveryEmployeeService) {
         this.deliveryEmployeeService = deliveryEmployeeService;
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createDeliveryEmployee(DeliveryEmployeeRequest deliveryEmployeeRequest) {
+    public Response createDeliveryEmployee(
+            final DeliveryEmployeeRequest deliveryEmployeeRequest) {
         try {
             return Response
                     .status(Response.Status.CREATED)
-                    .entity(deliveryEmployeeService.createDeliveryEmployee(deliveryEmployeeRequest))
+                    .entity(deliveryEmployeeService
+                            .createDeliveryEmployee(deliveryEmployeeRequest))
                     .build();
         } catch (SQLException e) {
             return Response.serverError().build();
         } catch (InvalidException e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity(e.getMessage()).build();
         }
     }
 }

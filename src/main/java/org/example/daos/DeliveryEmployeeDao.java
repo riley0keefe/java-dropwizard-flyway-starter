@@ -9,7 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeliveryEmployeeDao {
-    public int createDeliveryEmployee(DeliveryEmployeeRequest employee) throws
+    final int bankNumIndex = 3;
+    final int nationalInsuranceNumIndex = 4;
+    public int createDeliveryEmployee(
+            final DeliveryEmployeeRequest employee) throws
             SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
             String insertStatement = "INSERT INTO DeliveryEmployees "
@@ -17,12 +20,20 @@ public class DeliveryEmployeeDao {
                     + " `national_insurance_number`) "
                     + "VALUES (?, ?, ?, ?);";
 
-            PreparedStatement preparedStatement = connection.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement(insertStatement,
+                            Statement.RETURN_GENERATED_KEYS);
 
-            preparedStatement.setString(1, employee.getFirstName() + " " + employee.getMiddleName() + " " + employee.getLastName());
+            preparedStatement.setString(1,
+                    employee.getFirstName()
+                            + " "
+                            + employee.getMiddleName()
+                            + " "
+                            + employee.getLastName());
             preparedStatement.setDouble(2, employee.getSalary());
-            preparedStatement.setString(3, employee.getBankNumber());
-            preparedStatement.setString(4, employee.getNationalInsuranceNumber());
+            preparedStatement.setString(bankNumIndex, employee.getBankNumber());
+            preparedStatement.setString(nationalInsuranceNumIndex,
+                    employee.getNationalInsuranceNumber());
             preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if (resultSet.next()) {
