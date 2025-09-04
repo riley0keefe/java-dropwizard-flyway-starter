@@ -11,6 +11,7 @@ import org.example.daos.DeliveryEmployeeDao;
 import org.example.daos.TestDao;
 import org.example.services.DeliveryEmployeeService;
 import org.example.services.TestService;
+import org.example.validators.DeliveryEmployeeValidator;
 
 public class TestApplication extends Application<TestConfiguration> {
     public static void main(final String[] args) throws Exception {
@@ -34,7 +35,7 @@ public class TestApplication extends Application<TestConfiguration> {
     public void run(final TestConfiguration configuration,
                     final Environment environment) {
         environment.jersey()
-                .register(new DeliveryEmployeeController(new DeliveryEmployeeService(new DeliveryEmployeeDao())));
+                .register(new DeliveryEmployeeController(new DeliveryEmployeeService(new DeliveryEmployeeDao(), new DeliveryEmployeeValidator())));
     }
 
 }

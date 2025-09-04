@@ -1,6 +1,7 @@
 package org.example.controllers;
 
 import io.swagger.annotations.Api;
+import org.example.exception.InvalidException;
 import org.example.models.DeliveryEmployeeRequest;
 import org.example.services.DeliveryEmployeeService;
 
@@ -30,6 +31,8 @@ public class DeliveryEmployeeController {
                     .build();
         } catch (SQLException e) {
             return Response.serverError().build();
+        } catch (InvalidException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }
 }
