@@ -1,24 +1,44 @@
 package org.example.models;
 
 public class DeliveryEmployee {
-    private String name;
+    private String firstName;
+    private String middleName;
+    private String lastName;
     private double salary;
     private String bankNumber;
     private String nationalInsuranceNumber;
 
-    public DeliveryEmployee(String name, double salary, String bankNumber, String nationalInsuranceNumber) {
-        this.name = name;
+    public DeliveryEmployee(String firstName, String middleName, String lastName, double salary, String bankNumber, String nationalInsuranceNumber) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
         this.salary = salary;
         this.bankNumber = bankNumber;
         this.nationalInsuranceNumber = nationalInsuranceNumber;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public double getSalary() {

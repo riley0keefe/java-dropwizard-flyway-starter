@@ -19,7 +19,7 @@ public class DeliveryEmployeeDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
 
-            preparedStatement.setString(1, employee.getName());
+            preparedStatement.setString(1, employee.getFirstName() + " " + employee.getMiddleName() + " " + employee.getLastName());
             preparedStatement.setDouble(2, employee.getSalary());
             preparedStatement.setString(3, employee.getBankNumber());
             preparedStatement.setString(4, employee.getNationalInsuranceNumber());
