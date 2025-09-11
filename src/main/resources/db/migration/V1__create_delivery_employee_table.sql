@@ -1,5 +1,5 @@
 CREATE TABLE delivery_employee (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     first_name VARCHAR(64) NOT NULL CHECK (first_name <> ""),
     middle_name VARCHAR(64),
     last_name VARCHAR(64) NOT NULL CHECK (last_name <> ""),
