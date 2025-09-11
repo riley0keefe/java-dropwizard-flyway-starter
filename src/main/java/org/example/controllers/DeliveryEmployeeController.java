@@ -1,6 +1,7 @@
 package org.example.controllers;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.example.Exceptions.FailedToCreateException;
 import org.example.models.DeliveryEmployeeRequest;
 import org.example.services.DeliveryEmployeeService;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 
 @Api("Soniak Brew Deliver Employee API")
-@Path("/api/delivery")
+@Path("/api/deliveryemployees")
 public class DeliveryEmployeeController {
     DeliveryEmployeeService deliveryEmployeeService;
 
@@ -24,6 +25,9 @@ public class DeliveryEmployeeController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Add a Delivery Employee"
+    )
     public Response createDeliveryEmployee(
             final DeliveryEmployeeRequest deliveryEmployeeRequest) {
         try {
