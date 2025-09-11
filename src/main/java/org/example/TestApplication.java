@@ -7,10 +7,13 @@ import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import io.jsonwebtoken.Jwts;
 import org.example.controllers.AuthController;
+import org.example.controllers.DeliveryEmployeeController;
 import org.example.controllers.TestController;
 import org.example.daos.AuthDao;
+import org.example.daos.DeliveryEmployeeDao;
 import org.example.daos.TestDao;
 import org.example.services.AuthService;
+import org.example.services.DeliveryEmployeeService;
 import org.example.services.TestService;
 
 import java.security.Key;
@@ -39,6 +42,10 @@ public class TestApplication extends Application<TestConfiguration> {
         Key jwtKey = Jwts.SIG.HS256.key().build();
         environment.jersey().register(new TestController(new TestService(new TestDao())));
         environment.jersey().register(new AuthController(new AuthService(new AuthDao(), jwtKey)));
+        environment.jersey()
+                .register(new DeliveryEmployeeController(
+                        new DeliveryEmployeeService(
+                                new DeliveryEmployeeDao())));
 
     }
 
