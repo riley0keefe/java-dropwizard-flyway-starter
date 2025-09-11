@@ -4,10 +4,12 @@ import org.example.Exceptions.Entity;
 import org.example.Exceptions.FailedToCreateException;
 import org.example.Exceptions.NINLengthNotValidException;
 import org.example.daos.DeliveryEmployeeDao;
+import org.example.models.DeliveryEmployee;
 import org.example.models.DeliveryEmployeeRequest;
 
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class DeliveryEmployeeService {
 
@@ -36,4 +38,7 @@ public class DeliveryEmployeeService {
         return id;
     }
 
+    public List<DeliveryEmployee> getAllDeliveryEmployees() throws SQLException {
+        return deliveryEmployeeDao.getAllDeliveryEmployees();
+    }
 }

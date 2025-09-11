@@ -6,6 +6,7 @@ import org.example.Exceptions.FailedToCreateException;
 import org.example.models.DeliveryEmployeeRequest;
 import org.example.services.DeliveryEmployeeService;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -41,4 +42,19 @@ public class DeliveryEmployeeController {
             return Response.serverError().build();
         }
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Get all Delivery Employees"
+    )
+    public Response getAllDeliveryEmployees() throws SQLException{
+        try {
+            return Response.ok().entity(
+                    deliveryEmployeeService.getAllDeliveryEmployees()).build();
+        } catch (SQLException e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+    }
+
 }
