@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class AuthDao {
     public User getUser(LoginRequest loginRequest) throws SQLException {
         try(Connection connection = DatabaseConnector.getConnection()) {
-            String query = "SELECT Username, Password, RoleID FROM `User` WHERE Username = ? AND Password = ?;";
+            String query = "SELECT username, password, role_id FROM `user` WHERE username = ? AND password = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setString(1, loginRequest.getUsername());
@@ -21,9 +21,9 @@ public class AuthDao {
 
             while (resultSet.next()) {
                 return new User(
-                        resultSet.getString("Username"),
-                        resultSet.getString("Password"),
-                        resultSet.getInt("RoleID"));
+                        resultSet.getString("username"),
+                        resultSet.getString("password"),
+                        resultSet.getInt("role_id"));
             }
         }
         return null;
