@@ -16,6 +16,6 @@ CREATE TABLE `user` (
     FOREIGN KEY (role_id) REFERENCES role(role_id)
 );
 
-INSERT INTO User(username, password, role_id) VALUES ('admin', 'admin', 1);
-INSERT INTO User(username, password, role_id) VALUES ('hr', 'hr', 2);
-INSERT INTO User(username, password, role_id) VALUES ('user', 'user', 3
+INSERT INTO user(username, password, role_id) VALUES ('admin', 'admin', 1);
+INSERT INTO user(username, password, role_id) VALUES ('hr', 'hr', 2);
+INSERT INTO user(username, password, role_id) VALUES ('user', 'user', 3
