@@ -9,17 +9,16 @@ public class UserRole {
 
     int roleId;
 
-    private static final Map<Integer, String> rolesMap = Map.of(
-            1,ADMIN,
-            2,HR,
-            3,USER);
-
+    private static final Map<Integer, String> ROLESMAP = Map.of(
+            1, ADMIN,
+            2, HR,
+            3, USER);
     public UserRole(final int roleId) {
         setRoleId(roleId);
     }
 
     public String getRoleName() {
-        return rolesMap.get(getRoleId());
+        return ROLESMAP.get(getRoleId());
     }
 
     public int getRoleId() {
