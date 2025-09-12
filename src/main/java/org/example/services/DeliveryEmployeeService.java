@@ -1,7 +1,7 @@
 package org.example.services;
 
-import org.example.Exceptions.Entity;
-import org.example.Exceptions.FailedToCreateException;
+import org.example.exceptions.Entity;
+import org.example.exceptions.FailedToCreateException;
 import org.example.daos.DeliveryEmployeeDao;
 import org.example.models.DeliveryEmployeeRequest;
 

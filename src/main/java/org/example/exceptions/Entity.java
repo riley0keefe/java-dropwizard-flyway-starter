@@ -1,4 +1,4 @@
-package org.example.Exceptions;
+package org.example.exceptions;
 
 public enum Entity {
     DELIVERY_EMPLOYEE("Delivery Employee");

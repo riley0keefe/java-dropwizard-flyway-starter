@@ -3,7 +3,7 @@ package org.example.controllers;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.Authorization;
-import org.example.Exceptions.FailedToCreateException;
+import org.example.exceptions.FailedToCreateException;
 import org.example.models.DeliveryEmployeeRequest;
 import org.example.models.UserRole;
 import org.example.services.DeliveryEmployeeService;
