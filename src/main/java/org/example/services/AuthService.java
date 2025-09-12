@@ -10,8 +10,8 @@ import java.sql.Date;
 import java.sql.SQLException;
 
 public class AuthService {
-    private final AuthDao authDao;
-    private final Key key;
+    private AuthDao authDao;
+    private Key key;
     // 8 hours in milliseconds
     private static final long EXPIRATION_TIME = 28800000;
 
