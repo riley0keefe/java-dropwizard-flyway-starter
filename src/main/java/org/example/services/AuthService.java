@@ -38,7 +38,7 @@ public class AuthService {
                         + EXPIRATION_TIME))
                 .claim("role", user.getRoleId())
                 .subject(user.getUsername())
-                .issuer("DropwizardDemo")
+                .issuer("soniak-bew-backend")
                 .signWith(key)
                 .compact();
     }
