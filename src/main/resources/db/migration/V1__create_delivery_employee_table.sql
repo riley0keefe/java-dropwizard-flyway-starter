@@ -1,6 +1,5 @@
--- TODO: FIX AS REQUIRED. Bank acc numbers only. CANADA, CHINA, FRANCE NIN FORMATS
 CREATE TABLE delivery_employee (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     first_name VARCHAR(64) NOT NULL CHECK (first_name <> ""),
     middle_name VARCHAR(64),
     last_name VARCHAR(64) NOT NULL CHECK (last_name <> ""),
@@ -10,6 +9,6 @@ CREATE TABLE delivery_employee (
         CHECK (
             CHAR_LENGTH(national_insurance_number) = 9   -- Canada (SIN)
             OR CHAR_LENGTH(national_insurance_number) = 15  -- France (INSEE)
-            OR CHAR_LENGTH(national_insurance_number) = 18  -- China (ID)
+            OR CHAR_LENGTH(national_insurance_number) = 19  -- China (ID)
         )
 );

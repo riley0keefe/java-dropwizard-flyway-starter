@@ -31,16 +31,18 @@ import java.sql.SQLException;
 public class AuthController {
     AuthService authService;
 
-    public AuthController(AuthService authService) {
+    public AuthController(final AuthService authService) {
         this.authService = authService;
     }
 
     @POST
     @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(LoginRequest loginRequest) {
+    public Response login(final LoginRequest loginRequest) {
         try {
-            return Response.ok().entity(authService.login(loginRequest)).build();
+            return Response.ok()
+                    .entity(authService.login(loginRequest))
+                    .build();
         } catch (SQLException e) {
             return Response.serverError().build();
         }

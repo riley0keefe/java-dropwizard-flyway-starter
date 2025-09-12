@@ -9,9 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AuthDao {
-    public User getUser(LoginRequest loginRequest) throws SQLException {
-        try(Connection connection = DatabaseConnector.getConnection()) {
-            String query = "SELECT username, password, role_id FROM `user` WHERE username = ? AND password = ?;";
+    public User getUser(final LoginRequest loginRequest) throws SQLException {
+        try (Connection connection = DatabaseConnector.getConnection()) {
+            String query = "SELECT username, password, role_id FROM `user`"
+                    + " WHERE username = ? AND password = ?;";
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setString(1, loginRequest.getUsername());

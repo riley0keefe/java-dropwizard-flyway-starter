@@ -10,15 +10,17 @@ import java.sql.Date;
 import java.sql.SQLException;
 
 public class AuthService {
-    private final AuthDao authDao;
-    private final Key key;
+    private AuthDao authDao;
+    private Key key;
+    // 8 hours in milliseconds
+    private static final long EXPIRATION_TIME = 28800000;
 
-    public AuthService(AuthDao authDao, Key key) {
+    public AuthService(final AuthDao authDao, final Key key) {
         this.authDao = authDao;
         this.key = key;
     }
 
-    public String login(LoginRequest loginRequest)
+    public String login(final LoginRequest loginRequest)
             throws SQLException {
         User user = authDao.getUser(loginRequest);
 
@@ -29,13 +31,14 @@ public class AuthService {
         return generateJwtToken(user);
     }
 
-    private String generateJwtToken(User user) {
+    private String generateJwtToken(final User user) {
         return Jwts.builder()
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 28800000))
+                .expiration(new Date(System.currentTimeMillis()
+                        + EXPIRATION_TIME))
                 .claim("role", user.getRoleId())
                 .subject(user.getUsername())
-                .issuer("DropwizardDemo")
+                .issuer("soniak-bew-backend")
                 .signWith(key)
                 .compact();
     }
