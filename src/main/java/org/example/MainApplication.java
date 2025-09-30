@@ -13,14 +13,11 @@ import org.example.auth.JwtAuthenticator;
 import org.example.auth.RoleAuthorizer;
 import org.example.controllers.AuthController;
 import org.example.controllers.DeliveryEmployeeController;
-import org.example.controllers.TestController;
 import org.example.daos.AuthDao;
 import org.example.daos.DeliveryEmployeeDao;
-import org.example.daos.TestDao;
 import org.example.models.JwtToken;
 import org.example.services.AuthService;
 import org.example.services.DeliveryEmployeeService;
-import org.example.services.TestService;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 import java.security.Key;
@@ -57,9 +54,6 @@ public class MainApplication extends Application<TestConfiguration> {
         environment.jersey().register(RolesAllowedDynamicFeature.class);
         environment.jersey().register(
                 new AuthValueFactoryProvider.Binder<>(JwtToken.class));
-        environment
-                .jersey()
-                .register(new TestController(new TestService(new TestDao())));
         environment
                 .jersey()
                 .register(
